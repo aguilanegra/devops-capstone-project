@@ -125,14 +125,14 @@ class TestAccountService(TestCase):
 
     def test_get_account_list(self):
         """It should Get a list of Accounts"""
-         # Create some accounts then make a GET request to list all accounts
+        # Create some accounts then make a GET request to list all accounts
         self._create_accounts(5)
         resp = self.client.get(BASE_URL)
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
         data = resp.get_json()
         self.assertIsInstance(data, list)
         self.assertEqual(len(data), 5)
-    
+
     def test_list_accounts_no_accounts(self):
         """It should return an empty list when no Accounts exist"""
         # Make a GET request to list all accounts
